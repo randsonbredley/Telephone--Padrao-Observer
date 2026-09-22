@@ -1,4 +1,5 @@
 import java.util.Random;
+package telephone;
 
 /**
  * Mimic the data input ability of a physical phone's keypad;
@@ -11,14 +12,9 @@ public class KeyPad {
         this.model = model;
     }
 
-    public void simulateKeyPresses(int numKeyPresses) {
-        final int MAX_DIGIT = 12;
-        Random rnd = new Random();
-        for (int i = 0; i < numKeyPresses; i++) {
-            int newDigit = rnd.nextInt(MAX_DIGIT);
-            System.out.println("Pressing: " + newDigit);
-            model.addDigit(newDigit);
-        }
+    public void simulateKeyPress(int digit) {
+        System.out.println("Pressionando: " + digit);
+        model.addDigit(digit);
     }
 
 }
