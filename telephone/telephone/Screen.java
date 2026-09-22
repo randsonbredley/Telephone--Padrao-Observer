@@ -7,6 +7,7 @@ package telephone;
  */
 public class Screen {
     private final PhoneModel model;
+    private static final int NUMERO_DIGITOS_COMPLETO = 12; // Quantidade de dígitos para discar
 
     public Screen(PhoneModel model) {
         this.model = model;
@@ -26,12 +27,15 @@ public class Screen {
         model.addObserver(new PhoneObserver() {
             @Override
             public void digitAdded(int digit) {
-                StringBuilder sb = new StringBuilder();
-                for (int d : model.getDigits()) {
-                    sb.append(d);
+            	// Verifica se a quantidade total de dígitos atingiu o tamanho do número completo
+                if (model.getDigits().size() == NUMERO_DIGITOS_COMPLETO) {
+                    StringBuilder sb = new StringBuilder();
+                    for (int d : model.getDigits()) {
+                        sb.append(d);
+                    }
+                    System.out.println("Agora discando " + sb.toString() + "...");
                 }
-                System.out.println("Agora discando " + sb.toString() + "...");
             }
-        });
+        });            	
     }
 }
