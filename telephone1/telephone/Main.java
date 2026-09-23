@@ -1,9 +1,12 @@
 package telephone;
 
+/**
+ * Classe principal para executar a simulação do telefone.
+ */
 public class Main {
     public static void main(String[] args) {
     	PhoneModel model = new PhoneModel();
-        Screen screen = new Screen(model);
+        Screen screen = new Screen(model); // A Screen se autorregistra no Model
         KeyPad keyPad = new KeyPad(model);
 
         // Simulação com os dígitos do exemplo
